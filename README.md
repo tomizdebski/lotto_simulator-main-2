@@ -13,5 +13,3 @@ if the number belongs to the range of 1-49,
 after entering 6 numbers, it will sort them in ascending order and display them on the screen,
 draws 6 numbers from a range and displays them on the screen,
 It will inform the player how many numbers he got.
-
-Translated with www.DeepL.com/Translator (free version)

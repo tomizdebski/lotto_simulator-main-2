@@ -14,4 +14,50 @@ Napisz program, który:
 - wylosuje 6 liczb z zakresu i wyświetli je na ekranie,
 - poinformuje gracza, ile liczb trafił.
 """
+from random import randint
 
+liczby = []
+liczby_losowanie = []
+
+
+def podaj_typowane_liczby():
+    for i in range(6):
+        while True:
+            try:
+                wprowadzona_liczba = int(input(f"Podaj liczbę nr {i + 1} >>>"))
+                if 1 <= wprowadzona_liczba <= 60:
+                    liczby.append(wprowadzona_liczba)
+                    break
+                else:
+                    print("podano błędną liczbę")
+            except ValueError:
+                print("Value error")
+    f"Wylosowano liczby {liczby}"
+    return sorted(liczby)
+
+
+def losowanie_lotto():
+    for j in range(6):
+        liczby_losowanie.append(randint(1, 60))
+    return sorted(liczby_losowanie)
+
+
+def sprawdzenie_wyniku(liczby, liczby_losowanie):
+    if liczby == liczby_losowanie:
+        print("Wygrałeś")
+    else:
+        print("Niestety nie trafiłeś")
+
+    trafione = set(liczby) & set(liczby_losowanie)
+    return print(f"Trafiłeś {len(trafione)} liczby: {str(trafione)}")
+
+
+
+print("""
+######################################
+######SYMULATOR LOTTO#################
+#################################byIT#
+""")
+print(podaj_typowane_liczby())
+print(losowanie_lotto())
+print(sprawdzenie_wyniku(liczby, liczby_losowanie))
