@@ -16,40 +16,40 @@ Napisz program, który:
 """
 from random import randint
 
-liczby = []
-liczby_losowanie = []
+numbers = []
+random_numbers = []
 
 
-def podaj_typowane_liczby():
+def typing_numbers():
     for i in range(6):
         while True:
             try:
-                wprowadzona_liczba = int(input(f"Podaj liczbę nr {i + 1} >>>"))
-                if 1 <= wprowadzona_liczba <= 60 and wprowadzona_liczba not in liczby:
-                    liczby.append(wprowadzona_liczba)
+                input_numbers = int(input(f"Podaj liczbę nr {i + 1} >>>"))
+                if 1 <= input_numbers <= 60 and input_numbers not in numbers:
+                    numbers.append(input_numbers)
                     break
                 else:
                     print("podano błędną liczbę")
             except ValueError:
                 print("Value error")
-    f"Wylosowano liczby {liczby}"
-    return sorted(liczby)
+    f"Wylosowano liczby {numbers}"
+    return sorted(numbers)
 
 
-def losowanie_lotto():
+def lotto_draw():
     for j in range(6):
-        liczby_losowanie.append(randint(1, 60))
-    return sorted(liczby_losowanie)
+        random_numbers.append(randint(1, 60))
+    return sorted(random_numbers)
 
 
-def sprawdzenie_wyniku(liczby, liczby_losowanie):
-    if liczby == liczby_losowanie:
+def result_check(numbers, random_numbers):
+    if numbers == random_numbers:
         print("Wygrałeś")
     else:
         print("Niestety nie trafiłeś")
 
-    trafione = set(liczby) & set(liczby_losowanie)
-    return print(f"Trafiłeś {len(trafione)} liczby: {str(trafione)}")
+    hit_numbers = set(numbers) & set(random_numbers)
+    return print(f"Trafiłeś {len(hit_numbers)} liczby: {str(hit_numbers)}")
 
 
 
@@ -58,6 +58,6 @@ print("""
 ######SYMULATOR LOTTO#################
 #################################byIT#
 """)
-print(podaj_typowane_liczby())
-print(losowanie_lotto())
-print(sprawdzenie_wyniku(liczby, liczby_losowanie))
+print(typing_numbers())
+print(lotto_draw())
+print(result_check(numbers, random_numbers))
