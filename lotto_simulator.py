@@ -25,7 +25,7 @@ def podaj_typowane_liczby():
         while True:
             try:
                 wprowadzona_liczba = int(input(f"Podaj liczbę nr {i + 1} >>>"))
-                if 1 <= wprowadzona_liczba <= 60:
+                if 1 <= wprowadzona_liczba <= 60 and wprowadzona_liczba not in liczby:
                     liczby.append(wprowadzona_liczba)
                     break
                 else:
